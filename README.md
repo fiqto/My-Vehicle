@@ -64,4 +64,4 @@ Admin
 Manager
 1. Melakukan persetujuan
 
-   Login sebagai admin -> Klik Persetujuan pada Sidebar -> Klik ubah pada pemesanan yang ingin di setujui atau di tolak -> Isi form -> Klik Simpan
+   Login sebagai manager -> Klik Persetujuan pada Sidebar -> Klik ubah pada pemesanan yang ingin di setujui atau di tolak -> Isi form -> Klik Simpan
