@@ -54,7 +54,7 @@
                                 </td>
                                 <td class="flex items-center px-6 py-4">
                                     <button data-modal-target="edit-modal{{ $vehicle->id }}" data-modal-toggle="edit-modal{{ $vehicle->id }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" type="button">
-                                        Edit
+                                        Ubah
                                     </button>
                                 </td>
                             </tr>

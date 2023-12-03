@@ -58,7 +58,7 @@
                                 <td class="flex items-center px-6 py-4 gap-2">
                                     @if ($approval->status === "Menunggu")
                                         <button data-modal-target="edit-modal{{ $approval->id }}" data-modal-toggle="edit-modal{{ $approval->id }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" type="button">
-                                            Edit
+                                            Ubah
                                         </button>
                                     @endif
                                     

@@ -6,21 +6,34 @@ Aplikasi ini menggunakan:
 2. PHP v8.1.10
 
 Username dan Password:
+
 Admin
+
 email : admin@gmail.com
+
 password : 123456
+
 
 Manager 1
+
 email : manager01@gmail.com
+
 password : 123456
+
 
 Manager 2
+
 email : manager02@gmail.com
+
 password : 123456
 
+
 Manager 3
+
 email : manager03@gmail.com
+
 password : 123456
+
 
 ## Instalasi
 Setelah memiliki file My-Vehicle, jalankan perintah berikut
@@ -33,19 +46,22 @@ Setelah memiliki file My-Vehicle, jalankan perintah berikut
 
 ## Cara Pemakaian
 Admin
-1. Login dengan akun yang sudah ada sebagai admin
-2. Tambahkan data kendaraan
-   Klik Kendaraan pada Sidebar -> Klik Tambah -> Isi Form -> Klik Simpan
-3. Tambahkan data Sopir
-   Klik Sopir pada Sidebar -> Klik Tambah -> Isi Form -> Klik Simpan
-4. Tambahkan data Pemesanan
-   Klik Pemesanan pada Sidebar -> Klik Tambah -> Isi Form -> Klik Simpan
+1. Tambah data kendaraan
+
+   Login sebagai admin -> Klik Kendaraan pada Sidebar -> Klik Tambah -> Isi Form -> Klik Simpan
+2. Tambah data Sopir
+
+   Login sebagai admin -> Klik Sopir pada Sidebar -> Klik Tambah -> Isi Form -> Klik Simpan
+3. Tambah data Pemesanan
+
+   Login sebagai admin -> Klik Pemesanan pada Sidebar -> Klik Tambah -> Isi Form -> Klik Simpan
+
    Setelah data pemesanan telah ditambahkan maka untuk dapat melakukan ke tahap berikut nya memerlukan persetujuan dari kedua manager yang telah dipilih dalam form sebelumnya.
-5. Setelah pemesanan disetujui oleh kedua manager maka status pemesanan otomatis berganti menjadi Setuju
-6. Kemudian disaat status telah menjadi setuju maka kendaraan dapat di pakai dan ubah menjadi status menjadi Dipakai
-7. Disaat kendaraan telah dikembalikan maka ubah status menjadi Selesai.
+4. Setelah pemesanan disetujui oleh kedua manager maka status pemesanan otomatis berganti menjadi Setuju
+5. Kemudian disaat status telah menjadi setuju maka kendaraan dapat di pakai dan ubah menjadi status menjadi Dipakai
+6. Disaat kendaraan telah dikembalikan maka ubah status menjadi Selesai.
 
 Manager
-1. Login dengan akun yang sudah ada sebagai manager
-2. Melakukan persetujuan
-   Klik Persetujuan pada Sidebar -> Klik ubah pada pemesanan yang ingin di setujui atau di tolak -> Isi form -> Klik Simpan
+1. Melakukan persetujuan
+
+   Login sebagai admin -> Klik Persetujuan pada Sidebar -> Klik ubah pada pemesanan yang ingin di setujui atau di tolak -> Isi form -> Klik Simpan
