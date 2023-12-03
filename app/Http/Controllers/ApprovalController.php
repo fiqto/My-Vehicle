@@ -25,10 +25,11 @@ class ApprovalController extends Controller
         //
         $userId = Auth::id();
         $approvals = Approval::where('user_id', $userId)
-                         ->whereHas('booking', function ($query) {
-                             $query->where('status', '!=', 'Batal');
-                         })
-                         ->get();
+                        ->whereHas('booking', function ($query) {
+                            $query->where('status', '!=', 'Batal');
+                        })
+                        ->latest()
+                        ->paginate(10);
 
         return view('approval.index', compact('approvals'));
     }

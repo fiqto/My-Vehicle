@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class UpdateDriverRequest extends FormRequest
 {
@@ -23,7 +25,15 @@ class UpdateDriverRequest extends FormRequest
     {
         return [
             //
-            'name' => 'required'
+            'name' => 'required',
+            'status' => 'required'
         ];
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(
+            redirect()->back()->withInput()->withErrors($validator->errors())->with('error', 'Gagal menyimpan data.')
+        );
     }
 }

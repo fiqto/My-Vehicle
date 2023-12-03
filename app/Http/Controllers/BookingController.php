@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\BookingsExport;
 use App\Models\Booking;
 use App\Http\Requests\StoreBookingRequest;
 use App\Http\Requests\UpdateBookingRequest;
@@ -10,6 +11,7 @@ use App\Models\Driver;
 use App\Models\User;
 use App\Models\Vehicle;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BookingController extends Controller
 {
@@ -20,13 +22,19 @@ class BookingController extends Controller
     {
         $this->booking = $booking;
     }
+
+    public function export() 
+    {
+        return Excel::download(new BookingsExport, 'myvehicle.xlsx');
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         //
-        $bookings = Booking::all();
+        $bookings = Booking::latest()->paginate(10);
         $vehicles = Vehicle::all();
         $drivers = Driver::all();
         $approvals = Approval::all();

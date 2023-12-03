@@ -21,7 +21,7 @@ class VehicleController extends Controller
     public function index()
     {
         //
-        $vehicles = Vehicle::all();
+        $vehicles = Vehicle::latest()->paginate(10);
         return view('vehicle.index', compact('vehicles'));
     }
 

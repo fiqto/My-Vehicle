@@ -5,9 +5,15 @@
                 <p class="text-2xl font-medium text-gray-700 dark:text-gray-500">
                     Daftar Pemesanan
                 </p>
-                <button data-modal-target="add-modal" data-modal-toggle="add-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                    Tambah
-                </button>
+                <div class="flex gap-2">
+                    <a href="{{ route('bookings.export') }}" class="block text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                        Export
+                    </a>
+                    <button data-modal-target="add-modal" data-modal-toggle="add-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                        Tambah
+                    </button>
+                </div>
+                
             </div>
             
             <div class="relative min-h-48 mb-4 sm:rounded-lg overflow-x-auto shadow-md bg-white dark:bg-gray-800">
@@ -69,10 +75,12 @@
                                     {{ $booking->end_date->toDateString() }}
                                 </td>
                                 <td class="items-center px-6 py-4">
-                                    @if ($booking->status !== "Batal")
-                                        <button data-modal-target="edit-modal{{ $booking->id }}" data-modal-toggle="edit-modal{{ $booking->id }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" type="button">
-                                            Ubah
-                                        </button>
+                                    @if ($booking->status != "Batal" && $booking->status != "Selesai")
+                                        @if ($booking->status != "Menunggu")
+                                            <button data-modal-target="edit-modal{{ $booking->id }}" data-modal-toggle="edit-modal{{ $booking->id }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" type="button">
+                                                Ubah
+                                            </button>
+                                        @endif
                                         <button data-modal-target="delete-modal{{ $booking->id }}" data-modal-toggle="delete-modal{{ $booking->id }}" class="font-medium text-red-600 dark:text-red-500 hover:underline" type="button">
                                             Batal
                                         </button>
@@ -82,6 +90,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="m-4">
+                    {{ $bookings->links() }}
+                </div>
             </div>
         </div>
     </div>
@@ -113,7 +124,9 @@
                             <select id="vehicle_id" name="vehicle_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required>
                                 <option selected="">Pilih Kendaraan</option>
                                 @foreach ( $vehicles as $vehicle )
-                                <option value="{{ $vehicle->id }}">{{ $vehicle->plat_no }} - {{ $vehicle->category }}</option>
+                                    @if ($vehicle->status == "Tersedia")
+                                        <option value="{{ $vehicle->id }}">{{ $vehicle->plat_no }} - {{ $vehicle->category }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
@@ -122,7 +135,9 @@
                             <select id="driver_id" name="driver_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required>
                                 <option selected="">Pilih Sopir</option>
                                 @foreach ( $drivers as $driver )
-                                <option value="{{ $driver->id }}">{{ $driver->name }}</option>
+                                    @if ($driver->status == "Tersedia")
+                                        <option value="{{ $driver->id }}">{{ $driver->name }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>

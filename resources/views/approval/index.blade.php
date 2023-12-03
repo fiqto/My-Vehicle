@@ -47,23 +47,29 @@
                                     {{ $approval->booking->reason }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $approval->status }}
-                                </td>
-                                <td class="px-6 py-4">
                                     {{ $approval->booking->start_date->toDateString() }}
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $approval->booking->end_date->toDateString() }}
                                 </td>
+                                <td class="px-6 py-4">
+                                    {{ $approval->status }}
+                                </td>
                                 <td class="flex items-center px-6 py-4 gap-2">
-                                    <button data-modal-target="edit-modal{{ $approval->id }}" data-modal-toggle="edit-modal{{ $approval->id }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" type="button">
-                                        Edit
-                                    </button>
+                                    @if ($approval->status === "Menunggu")
+                                        <button data-modal-target="edit-modal{{ $approval->id }}" data-modal-toggle="edit-modal{{ $approval->id }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" type="button">
+                                            Edit
+                                        </button>
+                                    @endif
+                                    
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+                <div class="m-4">
+                    {{ $approvals->links() }}
+                </div>
             </div>
         </div>
     </div>
