@@ -61,6 +61,6 @@ class User extends Authenticatable
 
     public function approvals(): HasMany
     {
-        return $this->hasMany(Approvals::class);
+        return $this->hasMany(Approval::class);
     }
 }

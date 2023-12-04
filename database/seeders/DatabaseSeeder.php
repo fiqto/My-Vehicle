@@ -26,25 +26,25 @@ class DatabaseSeeder extends Seeder
                'name'=>'Admin User',
                'email'=>'admin@gmail.com',
                'role'=>0,
-               'password'=> bcrypt('123456'),
+               'password'=> bcrypt('12345678'),
             ],
             [
                'name'=>'Manager User 1',
                'email'=>'manager01@gmail.com',
                'role'=> 1,
-               'password'=> bcrypt('123456'),
+               'password'=> bcrypt('12345678'),
             ],
             [
                'name'=>'Manager User 2',
                'email'=>'manager02@gmail.com',
                'role'=>1,
-               'password'=> bcrypt('123456'),
+               'password'=> bcrypt('12345678'),
             ],
             [
                 'name'=>'Manager User 3',
                 'email'=>'manager03@gmail.com',
                 'role'=>1,
-                'password'=> bcrypt('123456'),
+                'password'=> bcrypt('12345678'),
              ],
         ];
     

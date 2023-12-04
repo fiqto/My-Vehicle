@@ -11,28 +11,28 @@ Admin
 
 email : admin@gmail.com
 
-password : 123456
+password : 12345678
 
 
 Manager 1
 
 email : manager01@gmail.com
 
-password : 123456
+password : 12345678
 
 
 Manager 2
 
 email : manager02@gmail.com
 
-password : 123456
+password : 12345678
 
 
 Manager 3
 
 email : manager03@gmail.com
 
-password : 123456
+password : 12345678
 
 
 ## Instalasi
